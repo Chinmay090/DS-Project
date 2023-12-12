@@ -1,0 +1,12 @@
+LOAD Student
+LOAD Marks
+CRT <- CROSS Student, Marks
+R <- SELECT Student_Stud_Id == Marks_Stud_Id FROM CRT
+S <- SELECT Maths_marks >= 70 FROM R
+T <- SELECT Physics_marks > 60 FROM S
+U <- SELECT Stud_age >= 16 FROM T
+V <- SELECT Stud_age <= 18 FROM U
+W <- PROJECT Student_Stud_Id Maths_marks Physics_marks Stud_age FROM V
+RENAME Student_Stud_Id TO stud_id FROM W
+RENAME Stud_age TO stud_age FROM W
+PRINT W

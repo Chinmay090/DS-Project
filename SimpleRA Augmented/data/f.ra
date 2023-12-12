@@ -1,0 +1,7 @@
+LOAD Advisor
+R <- SELECT Yrs_of_exp <= 4 FROM Advisor
+S <- SELECT Salary > 300000 FROM R
+T <- PROJECT Adv_Id, Yrs_of_exp FROM S
+RENAME Adv_Id TO adv_id FROM T
+RENAME Yrs_of_exp TO yrs_of_exp FROM T
+PRINT T
